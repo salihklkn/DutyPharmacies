@@ -7,7 +7,7 @@ namespace DutyPharmacies.Models
     public class Cityes
     {
         public string Name { get; set; }
-        public List<Districts> Districts { get; set; }
+		public List<Districts> Districts { get; set; }
     }
 
 

@@ -52,6 +52,7 @@ xmlns:listview="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfL
 
         <StackLayout x:Name="stk_map" IsVisible="true" BackgroundColor="Red">
 
+           
             <!--<maps:SfMaps x:Name="Map" >
                 <maps:SfMaps.Layers >
                     <maps:ImageryLayer MarkerSelected="Layer_MarkerSelected" ResetOldSelectedView="True">
@@ -74,15 +75,15 @@ xmlns:listview="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfL
                 </maps:SfMaps.Layers>
             </maps:SfMaps>-->
 
-
-            <maps:SfMaps x:Name="Mapx" ZoomLevel="10">
+            <maps:SfMaps x:Name="Mapx" 
+                         ZoomLevel="10"
+                         HorizontalOptions="FillAndExpand"
+                         VerticalOptions="FillAndExpand">
                 <maps:SfMaps.Layers>
                     <maps:ImageryLayer x:Name="img_map" GeoCoordinates="41.021282,28.995464">
                         <maps:ImageryLayer.MarkerSettings>
                             <maps:MapMarkerSetting IconColor="Red" IconSize="13" MarkerIcon="Diamond"/>
                         </maps:ImageryLayer.MarkerSettings>
-                        
-                        
                     </maps:ImageryLayer>
                 </maps:SfMaps.Layers>
             </maps:SfMaps>
