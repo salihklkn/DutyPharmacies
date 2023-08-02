@@ -9,7 +9,7 @@ namespace DutyPharmacies
 		public App()
 		{
 			InitializeComponent();
-
+			Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NGaF1cWGhIfEx1RHxQdld5ZFRHallYTnNWUj0eQnxTdEZjUX9ccXRUQGRfWERzXg==");
 			MainPage = new MainPage();
 		}
 

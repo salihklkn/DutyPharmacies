@@ -1,22 +1,94 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+xmlns:maps="clr-namespace:Syncfusion.SfMaps.XForms;assembly=Syncfusion.SfMaps.XForms"
+xmlns:picker="clr-namespace:Syncfusion.SfPicker.XForms;assembly=Syncfusion.SfPicker.XForms"
+xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+xmlns:listview="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DutyPharmacies.MainPage">
 
     <StackLayout>
-        <Picker x:Name="City">
-            <Picker.Items>
-                <x:String>İstanbul</x:String>
-                <x:String>Eskişehir</x:String>
-            </Picker.Items>
-        </Picker>
 
-        
-        
-        
+        <StackLayout Orientation="Horizontal">
+
+            <Button Text="Şehir Seçin" Clicked="Button_Clicked" HorizontalOptions="StartAndExpand"/>
+
+        </StackLayout>
+
+
+        <StackLayout x:Name="stk_dropdown" IsVisible="True">
+
+            <listview:SfListView x:Name="cityPicker"
+                                 ItemsSource="{Binding cities}"
+                                 SelectionChanged="cityPicker_SelectionChanged">
+                <listview:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <Label VerticalOptions="Center" 
+                           HorizontalOptions="Center"
+                           Text="{Binding Name}"
+                           FontAttributes="Bold"></Label>
+                    </DataTemplate>
+                </listview:SfListView.ItemTemplate>
+            </listview:SfListView>
+
+            <listview:SfListView x:Name="DistrictsPicker"
+                                 SelectionChanged="DistrictsPicker_SelectionChanged"
+                                 ItemsSource="{Binding cities}">
+                <listview:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <Label VerticalOptions="Center" 
+                           HorizontalOptions="Center"
+                           Text="{Binding DistrictName}"
+                           FontAttributes="Bold"></Label>
+                    </DataTemplate>
+                </listview:SfListView.ItemTemplate>
+            </listview:SfListView>
+
+        </StackLayout>
+
+
+
+
+
+        <StackLayout x:Name="stk_map" IsVisible="true" BackgroundColor="Red">
+
+            <!--<maps:SfMaps x:Name="Map" >
+                <maps:SfMaps.Layers >
+                    <maps:ImageryLayer MarkerSelected="Layer_MarkerSelected" ResetOldSelectedView="True">
+                        <maps:ImageryLayer.MarkerSettings>
+                            <maps:MapMarkerSetting IconColor="Red" IconSize="13" MarkerIcon="Diamond"/>
+                        </maps:ImageryLayer.MarkerSettings>
+                        <maps:ImageryLayer.Markers>
+                            <maps:MapMarker  Label="United States" 
+                                   Latitude="40" Longitude= "-101"/>
+                            <maps:MapMarker Label="Brazil"
+                                    Latitude="-15.7833" Longitude= "-52" />
+                            <maps:MapMarker Label="Congo" 
+                                    Latitude="-1.6" Longitude= "24.4" />
+                            <maps:MapMarker Label="Kazakhstan"
+                                    Latitude="49.9" Longitude= "72.23" />
+                            <maps:MapMarker Label="Australia" 
+                                    Latitude="-20.54" Longitude= "134.10" />
+                        </maps:ImageryLayer.Markers>
+                    </maps:ImageryLayer>
+                </maps:SfMaps.Layers>
+            </maps:SfMaps>-->
+
+
+            <maps:SfMaps x:Name="Mapx" ZoomLevel="10">
+                <maps:SfMaps.Layers>
+                    <maps:ImageryLayer x:Name="img_map" GeoCoordinates="41.021282,28.995464">
+                        <maps:ImageryLayer.MarkerSettings>
+                            <maps:MapMarkerSetting IconColor="Red" IconSize="13" MarkerIcon="Diamond"/>
+                        </maps:ImageryLayer.MarkerSettings>
+                        
+                        
+                    </maps:ImageryLayer>
+                </maps:SfMaps.Layers>
+            </maps:SfMaps>
+
+        </StackLayout>
+
     </StackLayout>
-
-
-   
 
 </ContentPage>

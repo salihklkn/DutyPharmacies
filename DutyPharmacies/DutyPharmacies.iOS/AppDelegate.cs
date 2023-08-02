@@ -1,4 +1,5 @@
-﻿using System;
+using Syncfusion.SfMaps.XForms.iOS;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -22,7 +23,8 @@ namespace DutyPharmacies.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            global::Xamarin.Forms.Forms.Init();
+global::Xamarin.Forms.Forms.Init();
+SfMapsRenderer.Init();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
